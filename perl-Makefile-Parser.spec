@@ -1,6 +1,6 @@
 Name:           perl-Makefile-Parser
 Version:        0.211
-Release:        1.1%{?dist}
+Release:        2%{?dist}
 Summary:        Simple parser for Makefiles
 License:        GPL+ or Artistic
 Group:          Development/Libraries
@@ -16,8 +16,11 @@ BuildRequires:  perl(File::Slurp)
 BuildRequires:  perl(IPC::Run3) >= 0.036
 BuildRequires:  perl(List::MoreUtils)
 BuildRequires:  perl(Makefile::DOM) >= 0.003
+BuildRequires:  perl(MDOM::Document::Gmake)
+BuildRequires:  perl(MDOM::Util)
 BuildRequires:  perl(Test::More)
 BuildRequires:  perl(Text::Balanced)
+BuildRequires:  perl(Time::HiRes)
 Requires:       perl(Class::Accessor::Fast)
 Requires:       perl(Class::Trigger) >= 0.13
 Requires:       perl(File::Slurp)
@@ -69,6 +72,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/plmake
 
 %changelog
+* Tue May 21 2013 Petr Pisar <ppisar@redhat.com> - 0.211-2
+- Build-require MDOM::Document::Gmake, MDOM::Util, and Time::HiRes explicitly
+  (Resolves: #657496)
+
 * Fri Jan 22 2010 Dennis Gregorovic <dgregor@redhat.com> - 0.211-1.1
 - Rebuilt for RHEL 6
 Related: rhbz#543948
